@@ -1,0 +1,8 @@
+<div class="mt-4" data-controller="toggle">
+  <h1>All the  artworks</h1>
+  <% @artworks.each do |artwork| %>
+    <h2><%= artwork.name%></h2>
+    <%= artwork.artist %>
+    <p><%= image_tag artwork.image, style:"height:50vw; width:50vw"%></p>
+  <% end %>
+</div>
