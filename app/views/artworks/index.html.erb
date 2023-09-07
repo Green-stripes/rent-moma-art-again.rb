@@ -5,4 +5,10 @@
     <%= artwork.artist %>
     <p><%= image_tag artwork.image, style:"height:50vw; width:50vw"%></p>
   <% end %>
+
+  <div>
+    <button>Create an artwork</button>
+
+    <p><%= render "form", artwork: @artwork %></p>
+  </div>
 </div>
