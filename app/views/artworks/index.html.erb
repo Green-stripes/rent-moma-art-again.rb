@@ -1,4 +1,4 @@
-<div class="mt-4" data-controller="toggle">
+<div class="mt-4">
   <h1>All the  artworks</h1>
   <% @artworks.each do |artwork| %>
     <h2><%= artwork.name%></h2>
@@ -6,9 +6,11 @@
     <p><%= image_tag artwork.image, style:"height:50vw; width:50vw"%></p>
   <% end %>
 
-  <div>
-    <button>Create an artwork</button>
+  <div data-controller="toggle" >
 
-    <p><%= render "form", artwork: @artwork %></p>
+    <button data-toggle-target="button" data-action="click->toggle#fire" class="btn btn-outline-primary mb-5">Create an artwork</button>
+    <div data-toggle-target="form" class="d-none">
+      <%= render "form", artwork: @artwork %>
+    </div>
   </div>
 </div>

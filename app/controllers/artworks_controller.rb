@@ -5,9 +5,9 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new
   end
 
-  def new
-    @artwork = Artwork.new
-  end
+  # def new
+  #   @artwork = Artwork.new
+  # end
 
   def create
     @artwork = Artwork.new(artwork_params)
