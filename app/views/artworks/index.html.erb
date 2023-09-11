@@ -1,15 +1,15 @@
-<div class="mt-4">
+<div class="m-4">
   <h1>All the  artworks</h1>
-  <% @artworks.each do |artwork| %>
-    <h2><%= artwork.name%></h2>
-    <%= artwork.artist %>
-    <% if artwork.image.attached? %>
-      <p><%= cl_image_tag artwork.image.key, height: 300, width: 400, crop: :fill%></p>
-    <% else %>
-      <p><%= image_tag artwork.image, style:"height:50vw; width:50vw"%></p>
+  <div class="mb-4">
+    <% @artworks.each do |artwork| %>
+      <h2><%= artwork.name%></h2>
+        <%= artwork.artist %>
+        <% if artwork.image.attached? %>
+          <p><%= cl_image_tag artwork.image.key, height: 300, width: 400, crop: :fill%></p>
+      <% end %>
+      <%= link_to "View", artwork_path(artwork) %>
     <% end %>
-  <% end %>
-
+  </div>
   <div data-controller="toggle" >
 
     <button data-toggle-target="button" data-action="click->toggle#fire" class="btn btn-outline-primary mb-5">Create an artwork</button>

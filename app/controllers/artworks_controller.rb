@@ -18,6 +18,10 @@ class ArtworksController < ApplicationController
     end
   end
 
+  def show
+    @artwork = Artwork.find(params[:id])
+  end
+
   private
 
   def artwork_params
