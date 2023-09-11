@@ -3,12 +3,7 @@ class ArtworksController < ApplicationController
   def index
     @artworks = Artwork.all
     @artwork = Artwork.new
-    # @booking = Booking.new
   end
-
-  # def new
-  #   @artwork = Artwork.new
-  # end
 
   def create
     @artwork = Artwork.new(artwork_params)
