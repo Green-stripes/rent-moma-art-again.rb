@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2023-09-11
+  end_date: 2023-09-11
+  total_cost: 1
+  user: one
+  artwork: one
+
+two:
+  start_date: 2023-09-11
+  end_date: 2023-09-11
+  total_cost: 1
+  user: two
+  artwork: two
