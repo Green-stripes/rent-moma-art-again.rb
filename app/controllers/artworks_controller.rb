@@ -11,6 +11,11 @@ class ArtworksController < ApplicationController
 
   def create
     @artwork = Artwork.new(artwork_params)
+    if @artwork.save
+      redirect_to root_path
+    else
+      render 'form', status: :unprocessable_entity
+    end
   end
 
   private

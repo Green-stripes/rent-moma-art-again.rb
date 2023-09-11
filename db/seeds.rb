@@ -16,7 +16,10 @@ object_ids.first(20).each do |object_id|
   search = JSON.parse(infos)
 
 if search != nil && search["primaryImage"] != ""
-  artwork = Artwork.create(name: search["title"], artist: search["artistDisplayName"] , image: search["primaryImage"], cost_per_day: rand(10-10000), culture: search["Culture"], completion_date: search["artistEndDate"], medium: search["medium"] )
+  artwork = Artwork.new(name: search["title"], artist: search["artistDisplayName"] , cost_per_day: rand(10-10000), culture: search["Culture"], completion_date: search["artistEndDate"], medium: search["medium"] )
+  file = URI.open(search["primaryImage"])
+  artwork.image.attach(io: file, filename: "pic.png", content_type: "image/jpg")
+  artwork.save!
   puts "Created artwork #{artwork.id}"
 end
 end

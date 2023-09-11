@@ -3,7 +3,11 @@
   <% @artworks.each do |artwork| %>
     <h2><%= artwork.name%></h2>
     <%= artwork.artist %>
-    <p><%= image_tag artwork.image, style:"height:50vw; width:50vw"%></p>
+    <% if artwork.image.attached? %>
+      <p><%= cl_image_tag artwork.image.key, height: 300, width: 400, crop: :fill%></p>
+    <% else %>
+      <p><%= image_tag artwork.image, style:"height:50vw; width:50vw"%></p>
+    <% end %>
   <% end %>
 
   <div data-controller="toggle" >
