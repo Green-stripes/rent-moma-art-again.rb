@@ -1,4 +1,14 @@
 <h1><%= @artwork.name %></h1>
 <%= cl_image_tag @artwork.image.key, height: 300, width: 300, drop: :fill, class:"my-4" %>
 
+<% if @artwork.bookings.first == nil %>
+  <p>No current bookings</p>
+<% else %>
+  <ol>Bookings:
+    <% @artwork.bookings.each do |booking| %>
+      <li><%= booking.start_date %> - <%=booking.end_date %></li>
+    <% end %>
+  </ol>
+<% end %>
+<p><%= link_to "Book now", new_artwork_booking_path(@artwork) %></p>
 <p><%= link_to "Go back", root_path %></p>
