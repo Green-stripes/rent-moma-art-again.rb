@@ -5,7 +5,7 @@
         <span data-controller="typing" data-typing-strings-value= "<%= [artwork.name] %>">
           <%= artwork.name%>
         </span>
-          <p><%= artwork.artist %></p>
+          <p> ~ <%= artwork.artist %></p>
           <% if artwork.image.attached? %>
             <p><%= cl_image_tag artwork.image.key, height: 300, width: 400, crop: :fill%></p>
         <% end %>
