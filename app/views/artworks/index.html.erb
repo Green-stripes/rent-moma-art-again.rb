@@ -1,13 +1,16 @@
 <div class="m-4">
   <h1>All the  artworks</h1>
-  <div class="mb-4">
-    <% @artworks.each do |artwork| %>
-      <h2><%= artwork.name%></h2>
-        <%= artwork.artist %>
-        <% if artwork.image.attached? %>
-          <p><%= cl_image_tag artwork.image.key, height: 300, width: 400, crop: :fill%></p>
-      <% end %>
-      <%= link_to "View", artwork_path(artwork) %>
+    <div class="my-4">
+      <% @artworks.each do |artwork| %>
+        <span data-controller="typing" data-typing-strings-value= "<%= [artwork.name] %>">
+          <%= artwork.name%>
+        </span>
+          <p><%= artwork.artist %></p>
+          <% if artwork.image.attached? %>
+            <p><%= cl_image_tag artwork.image.key, height: 300, width: 400, crop: :fill%></p>
+        <% end %>
+    </div>
+      <p><%= link_to "View", artwork_path(artwork) %></p>
     <% end %>
   </div>
   <div data-controller="toggle" >
