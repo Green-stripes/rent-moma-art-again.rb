@@ -1,0 +1,7 @@
+<%# <div <%  data: { controller: "typing", typing_strings_value: "<%= [artwork.name] %>"} %> > %>
+  <%= artwork.name%>
+<%# </div> %>
+<p> ~ <%= artwork.artist %></p>
+<% if artwork.image.attached? %>
+  <%= cl_image_tag artwork.image.key, height: 300, width: 400, crop: :fill%>
+<% end %>

@@ -6,6 +6,7 @@ export default class extends Controller {
   static values = { strings: Array }
 
   connect() {
+    console.log("hello from typing controller")
     new Typed(this.element, {
       strings: this.stringsValue,
       typeSpeed: 50

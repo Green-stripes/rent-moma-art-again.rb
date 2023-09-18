@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     @booking = Booking.new
     @artwork = Artwork.find(params[:artwork_id])
@@ -18,6 +17,12 @@ class BookingsController < ApplicationController
     else
       render 'new', status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to artwork_path(@booking.artwork), status: :see_other
   end
 
 private

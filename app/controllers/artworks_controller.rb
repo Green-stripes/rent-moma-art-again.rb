@@ -7,10 +7,15 @@ class ArtworksController < ApplicationController
 
   def create
     @artwork = Artwork.new(artwork_params)
-    if @artwork.save
-      redirect_to root_path
-    else
-      render 'form', status: :unprocessable_entity
+
+    respond_to do |format|
+      if @artwork.save
+        format.html { redirect_to root_path, notice: 'It was properly saved!' }
+        format.json
+      else
+        format.html { render 'form', status: :unprocessable_entity }
+        format.json
+      end
     end
   end
 

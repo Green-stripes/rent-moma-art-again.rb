@@ -1,5 +1,4 @@
-
-<%= simple_form_for artwork do |f| %>
+<%= simple_form_for artwork, data: {insert_in_list_target:"form", action:"submit->insert-in-list#adder"} do |f| %>
   <%= f.input :name %>
   <%= f.input :artist %>
   <%= f.input :cost_per_day %>
